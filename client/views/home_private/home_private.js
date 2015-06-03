@@ -6,6 +6,7 @@ var month = today.getMonth() + 1;
 var pageSession = new ReactiveDict();
 pageSession.set("getMonth", month + "-" + year);
 pageSession.get("hetMonth");
+pageSession.set("getDay", "3");
 Template.HomePrivate.rendered = function() {
 
 };
@@ -19,10 +20,11 @@ Template.HomePrivate.helpers({
 
 Template.calendar.helpers({
     getDay : function(o){
-        var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-        var numOfDay = new Date(year,month,0).getDate();
-        var day = o-startDate+1;
-        return (day>0 && day<=numOfDay)?day:"";
+        // var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+        // var numOfDay = new Date(year,month,0).getDate();
+        // var day = o-startDate+1;
+        // return (day>0 && day<=numOfDay)?day:"";
+        return pageSession.get("getDay");
     },
     getMonth : function(){
         return pageSession.get("getMonth");//month + "-" + year;
@@ -156,13 +158,23 @@ Template.calendar.helpers({
 });
 Template.calendar.events({
     'click #premonth': function(){
-        var currentMonth = month-1;
-        
-//         chỗ này viết hàm để tính tháng trước đó
-// mỗi khi thực hiện sự kiện này thì tháng phải giảm đi 1 đồng thời kiểm tra nếu số tháng âm thì phải điều chỉnh cả năm nữa 
-// giá trị cuối cùng được gán vào biến premonth là được
-        var premonth = currentMonth +"-" + year;
+        month = month-1;
+        var premonth = month +"-" + year;
+        if(month<=1){
+            month = 13;
+            year = year -1;
+        }
         pageSession.set("getMonth", premonth);
+        pageSession.set("getDay", "4");
+    },
+    'click #nextMonth': function(){
+        month = month+1;
+        var nextmonth = month +"-" + year;
+        if(month>11){
+            month = 0;
+            year = year +1;
+        }
+        pageSession.set("getMonth", nextmonth);       
     },
     'click #date1' : function(){
         if(pageSession.get("meo1")== "haha"){
