@@ -24,9 +24,9 @@ Template.calendar.helpers({
         var day = o-startDate+1;
         return (day>0 && day<=numOfDay)?day:"";
     },
-    // getMonth : function(){
-    //     return month + "-" + year;
-    // },
+    getMonth : function(){
+        return pageSession.get("getMonth");//month + "-" + year;
+    },
     meo1 : function(){
         return pageSession.get("meo1");
     },
@@ -49,7 +49,7 @@ Template.calendar.helpers({
         return pageSession.get("meo7");
     },
     meo8 : function(){
-        return pageSession.get("meo8");// chuyen 2 cho meo nay thanh meo3 tuong tu voi cai ben duoi
+        return pageSession.get("meo8");
     },
     meo9 : function(){
         return pageSession.get("meo9");
@@ -156,7 +156,13 @@ Template.calendar.helpers({
 });
 Template.calendar.events({
     'click #premonth': function(){
-
+        var currentMonth = month-1;
+        
+//         chỗ này viết hàm để tính tháng trước đó
+// mỗi khi thực hiện sự kiện này thì tháng phải giảm đi 1 đồng thời kiểm tra nếu số tháng âm thì phải điều chỉnh cả năm nữa 
+// giá trị cuối cùng được gán vào biến premonth là được
+        var premonth = currentMonth +"-" + year;
+        pageSession.set("getMonth", premonth);
     },
     'click #date1' : function(){
         if(pageSession.get("meo1")== "haha"){
@@ -248,7 +254,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 4-startDate+1;// chuyen so 4 thanh so 8 theo #date va tuong tu voi cai ben duoi
+            var day = 8-startDate+1;// chuyen so 4 thanh so 8 theo #date va tuong tu voi cai ben duoi
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo8", "haha");// chuyen meo
@@ -260,7 +266,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 9-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo9", "haha");
@@ -272,7 +278,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 10-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo10", "haha");
@@ -284,7 +290,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 11-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo11", "haha");
@@ -296,7 +302,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 12-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo12", "haha");
@@ -308,7 +314,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 13-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo13", "haha");
@@ -320,7 +326,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 14-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo14", "haha");
@@ -332,7 +338,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 15-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo15", "haha");
@@ -344,7 +350,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 16-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo16", "haha");
@@ -356,7 +362,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 17-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo17", "haha");
@@ -368,7 +374,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 18-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo18", "haha");
@@ -380,7 +386,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 19-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo19", "haha");
@@ -392,7 +398,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 20-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo20", "haha");
@@ -404,7 +410,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 21-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo21", "haha");
@@ -416,7 +422,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 22-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo22", "haha");
@@ -428,7 +434,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 23-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo23", "haha");
@@ -440,7 +446,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 24-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo24", "haha");
@@ -452,7 +458,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 25-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo25", "haha");
@@ -464,7 +470,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 26-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo26", "haha");
@@ -476,7 +482,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 27-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo27", "haha");
@@ -488,7 +494,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 28-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo28", "haha");
@@ -500,7 +506,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 29-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo29", "haha");
@@ -512,7 +518,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 30-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo30", "haha");
@@ -524,7 +530,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 31-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo31", "haha");
@@ -536,7 +542,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 32-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo32", "haha");
@@ -548,7 +554,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 33-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo33", "haha");
@@ -560,7 +566,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 34-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo34", "haha");
@@ -572,7 +578,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 35-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo35", "haha");
@@ -584,7 +590,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 36-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo36", "haha");
@@ -596,7 +602,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 37-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo37", "haha");
@@ -608,7 +614,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 38-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo38", "haha");
@@ -620,7 +626,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 39-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo39", "haha");
@@ -632,7 +638,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 40-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo40", "haha");
@@ -644,7 +650,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 41-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
             pageSession.set("meo41", "haha");
@@ -656,7 +662,7 @@ Template.calendar.events({
         }else{
             var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
             var numOfDay = new Date(year,month,0).getDate();
-            var day = 3-startDate+1;
+            var day = 42-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0)
                pageSession.set("meo42", "haha");

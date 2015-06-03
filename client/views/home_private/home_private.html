@@ -20,7 +20,7 @@
             <button class = "btn btn-md btn-warning" style = "margin: 0;" id = "premonth"> « </button>
         </div>
         <div style = "display: inline-block;background-color: #D0D0D0; padding: 0 10px 0 10px">
-            <h4>{{getMonth}} </h4>
+            <h4>{{#if getMonth}}{{getMonth}}{{/if}} </h4>
         </div>
         <div style = "display: inline-block;background-color: #D0D0D0;">
             <button class = "btn btn-md btn-warning" id = "nextMonth" > » </button>
@@ -37,13 +37,13 @@
       <th>Sat</th>
     </thead>
     <tr id="row1">
-      <td id="date1" class = "{{#if meo1}}{{meo1}}{{/if}}">{{getDay 1}}</td>
-      <td id="date2" class = "{{#if meo2}}{{meo2}}{{/if}}">{{getDay 2}}</td>
-      <td id="date3" class = "{{#if meo3}}{{meo3}}{{/if}}">{{getDay 3}}</td>
-      <td id="date4" class = "{{#if meo4}}{{meo4}}{{/if}}">{{getDay 4}}</td>
-      <td id="date5" class = "{{#if meo5}}{{meo5}}{{/if}}">{{getDay 5}}</td>
-      <td id="date6" class = "{{#if meo6}}{{meo6}}{{/if}}">{{getDay 6}}</td>
-      <td id="date7" class = "{{#if meo7}}{{meo7}}{{/if}}">{{getDay 7}}</td>
+      <td id="date1" class = "{{#if meo1}}{{meo1}}{{/if}}">{{#if getDay}}{{getDay 1}}{{/if}}</td>
+      <td id="date2" class = "{{#if meo2}}{{meo2}}{{/if}}">{{#if getDay}}{{getDay 2}}{{/if}}</td>
+      <td id="date3" class = "{{#if meo3}}{{meo3}}{{/if}}">{{#if getDay}}{{getDay 3}}{{/if}}</td>
+      <td id="date4" class = "{{#if meo4}}{{meo4}}{{/if}}">{{#if getDay}}{{getDay 4}}{{/if}}</td>
+      <td id="date5" class = "{{#if meo5}}{{meo5}}{{/if}}">{{#if getDay}}{{getDay 5}}{{/if}}</td>
+      <td id="date6" class = "{{#if meo6}}{{meo6}}{{/if}}">{{#if getDay}}{{getDay 6}}{{/if}}</td>
+      <td id="date7" class = "{{#if meo7}}{{meo7}}{{/if}}">{{#if getDay}}{{getDay 7}}{{/if}}</td>
     </tr>
     <tr id="row2">
       <!-- them  class = "{{#if meo2}}{{meo2}}{{/if}}" voi meo8 tuong ung voi so tren id-->
