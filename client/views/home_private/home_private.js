@@ -4,7 +4,8 @@ var month = today.getMonth() + 1;
 
 
 var pageSession = new ReactiveDict();
-
+pageSession.set("getMonth", month + "-" + year);
+pageSession.get("hetMonth");
 Template.HomePrivate.rendered = function() {
 
 };
@@ -23,9 +24,9 @@ Template.calendar.helpers({
         var day = o-startDate+1;
         return (day>0 && day<=numOfDay)?day:"";
     },
-    getMonth : function(){
-        return month + "-" + year;
-    },
+    // getMonth : function(){
+    //     return month + "-" + year;
+    // },
     meo1 : function(){
         return pageSession.get("meo1");
     },
@@ -154,6 +155,9 @@ Template.calendar.helpers({
     },
 });
 Template.calendar.events({
+    'click #premonth': function(){
+
+    },
     'click #date1' : function(){
         if(pageSession.get("meo1")== "haha"){
             pageSession.set("meo1", '');
