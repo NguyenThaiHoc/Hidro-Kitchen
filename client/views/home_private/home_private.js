@@ -6,7 +6,11 @@ var month = today.getMonth() + 1;
 var pageSession = new ReactiveDict();
 pageSession.set("getMonth", month + "-" + year);
 pageSession.get("hetMonth");
-pageSession.set("getDay", month + "-" + year);
+
+var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+pageSession.set("getDay", startDate);
+
+// pageSession.set("getDay", month + "-" + year);
 Template.HomePrivate.rendered = function() {
 
 };
@@ -20,11 +24,10 @@ Template.HomePrivate.helpers({
 
 Template.calendar.helpers({
     getDay : function(o){
-        // var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-        // var numOfDay = new Date(year,month,0).getDate();
+        var numOfDay = new Date(year,month,0).getDate();
         // var day = o-startDate+1;
-        // return (day>0 && day<=numOfDay)?day:"";
-        return pageSession.get("getDay");
+        // var retDay (day>0 && day<=numOfDay)?day:"";
+        return (((o - pageSession.get("getDay")+1)>0)&&((o - pageSession.get("getDay")+1)<=numOfDay))?(o - pageSession.get("getDay")+1):"";
     },
     getMonth : function(){
         return pageSession.get("getMonth");//month + "-" + year;
@@ -165,7 +168,12 @@ Template.calendar.events({
             year = year -1;
         }
         pageSession.set("getMonth", premonth);
-        pageSession.set("getDay", "4");
+
+
+        // ham tinh ngay
+
+        var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+        pageSession.set("getDay", startDate);
     },
     'click #nextMonth': function(){
         month = month+1;
@@ -174,7 +182,10 @@ Template.calendar.events({
             month = 0;
             year = year +1;
         }
-        pageSession.set("getMonth", nextmonth);       
+        pageSession.set("getMonth", nextmonth);
+        // ham tinh ngayf
+        var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+        pageSession.set("getDay", startDate);       
     },
     'click #date1' : function(){
         if(pageSession.get("meo1")== "haha"){
