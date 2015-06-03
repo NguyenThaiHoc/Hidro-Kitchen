@@ -6,7 +6,7 @@ var month = today.getMonth() + 1;
 var pageSession = new ReactiveDict();
 pageSession.set("getMonth", month + "-" + year);
 pageSession.get("hetMonth");
-pageSession.set("getDay", "3");
+pageSession.set("getDay", month + "-" + year);
 Template.HomePrivate.rendered = function() {
 
 };
