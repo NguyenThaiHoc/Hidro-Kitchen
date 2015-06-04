@@ -1,6 +1,9 @@
 var dishChosen = [];
 var hahahaha = ["TxCn4GSiotAXjG5eE","fLyRTzzNjhffNHZiD","9NLC9JakrDkLqjJLS"]
 // var date = "2015-05-31";
+
+var pageSession = new ReactiveDict();
+
 var getMonan = function(){
 		
     	return MonAn.find({_id: { $nin: dishChosen}}, {sort: { name: 1, cost: -1}}).fetch();
@@ -22,6 +25,12 @@ Template.ManageMenu.events({
 	'click #save2' : function(e, t){
 		var date = t.find('#date').value.trim();
 		Meteor.call('updateMenu', date, dishChosen);
+	},
+	'click #show' : function(e, t){
+
+    	var hahaxx =  MonAn.find({_id: { $nin: dishChosen}}, {sort: { name: 1, cost: -1}}).fetch();
+    	pageSession.set("dishChosentemp", hahaxx);
+		//alert("show")
 	}
 });
 
@@ -105,7 +114,7 @@ Template.edish.helpers({
 
 Template.dishChosen.helpers({
 	dishChosentemp: function(){
-      return MonAn.find({_id: { $in: dishChosen}}, {sort: { name: 1, cost: -1}}).fetch();
+		return pageSession.get("dishChosentemp");
 	}	
 });
 
