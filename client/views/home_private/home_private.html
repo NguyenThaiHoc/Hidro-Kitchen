@@ -28,13 +28,13 @@
     </div>
   <table class = "table table-striped table-hover">
     <thead id="weekRow">
-      <th>Sun</th>
-      <th>Mon</th>
-      <th>Tue</th>
-      <th>Wed</th>
-      <th>Thu</th>
-      <th>Fri</th>
-      <th>Sat</th>
+      <th id = "sun">Sun</th>
+      <th id = "mon">Mon</th>
+      <th id = "tue">Tue</th>
+      <th id = "wed">Wed</th>
+      <th id = "thu">Thu</th>
+      <th id = "fri">Fri</th>
+      <th id = "sat">Sat</th>
     </thead>
     <tr id="row1">
       <td id="date1" class = "{{#if meo1}}{{meo1}}{{/if}}">{{getDay 1}}</td>
@@ -92,4 +92,5 @@
       <td id="date42" class = "{{#if meo42}}{{meo42}}{{/if}}">{{getDay 42}}</td>
     </tr>
   </table>
+  <button class = "btn btn-md btn-success">Save</button>
 </template>

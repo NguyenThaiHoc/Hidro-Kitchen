@@ -1,6 +1,7 @@
 var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth() + 1;
+var chooseDay = [];
 
 
 var pageSession = new ReactiveDict();
@@ -160,6 +161,27 @@ Template.calendar.helpers({
     },
 });
 Template.calendar.events({
+    'click #mon': function(){
+
+    },
+    'click #tue': function(){
+        
+    },
+    'click #web': function(){
+        
+    },
+    'click #thu': function(){
+        
+    },
+    'click #fri': function(){
+        
+    },
+    'click #sat': function(){
+        
+    },
+    'click #sun': function(){
+        
+    },
     'click #premonth': function(){
         month = month-1;
         var premonth = month +"-" + year;
@@ -168,7 +190,48 @@ Template.calendar.events({
             year = year -1;
         }
         pageSession.set("getMonth", premonth);
-
+        pageSession.set("meo1", '');
+        pageSession.set("meo2", '');
+        pageSession.set("meo3", '');
+        pageSession.set("meo4", '');
+        pageSession.set("meo5", '');
+        pageSession.set("meo6", '');
+        pageSession.set("meo7", '');
+        pageSession.set("meo8", '');
+        pageSession.set("meo9", '');
+        pageSession.set("meo10", '');
+        pageSession.set("meo11", '');
+        pageSession.set("meo12", '');
+        pageSession.set("meo13", '');
+        pageSession.set("meo14", '');
+        pageSession.set("meo15", '');
+        pageSession.set("meo16", '');
+        pageSession.set("meo17", '');
+        pageSession.set("meo18", '');
+        pageSession.set("meo19", '');
+        pageSession.set("meo20", '');
+        pageSession.set("meo21", '');
+        pageSession.set("meo22", '');
+        pageSession.set("meo23", '');
+        pageSession.set("meo24", '');
+        pageSession.set("meo25", '');
+        pageSession.set("meo26", '');
+        pageSession.set("meo27", '');
+        pageSession.set("meo28", '');
+        pageSession.set("meo29", '');
+        pageSession.set("meo30", '');
+        pageSession.set("meo31", '');
+        pageSession.set("meo32", '');
+        pageSession.set("meo33", '');
+        pageSession.set("meo34", '');
+        pageSession.set("meo35", '');
+        pageSession.set("meo36", '');
+        pageSession.set("meo37", '');
+        pageSession.set("meo38", '');
+        pageSession.set("meo39", '');
+        pageSession.set("meo40", '');
+        pageSession.set("meo41", '');
+        pageSession.set("meo42", '');
 
         // ham tinh ngay
 
@@ -185,7 +248,50 @@ Template.calendar.events({
         pageSession.set("getMonth", nextmonth);
         // ham tinh ngayf
         var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-        pageSession.set("getDay", startDate);       
+        pageSession.set("getDay", startDate);    
+                pageSession.set("meo1", '');
+        pageSession.set("meo2", '');
+        pageSession.set("meo3", '');
+        pageSession.set("meo4", '');
+        pageSession.set("meo5", '');
+        pageSession.set("meo6", '');
+        pageSession.set("meo7", '');
+        pageSession.set("meo8", '');
+        pageSession.set("meo9", '');
+        pageSession.set("meo10", '');
+        pageSession.set("meo11", '');
+        pageSession.set("meo12", '');
+        pageSession.set("meo13", '');
+        pageSession.set("meo14", '');
+        pageSession.set("meo15", '');
+        pageSession.set("meo16", '');
+        pageSession.set("meo17", '');
+        pageSession.set("meo18", '');
+        pageSession.set("meo19", '');
+        pageSession.set("meo20", '');
+        pageSession.set("meo21", '');
+        pageSession.set("meo22", '');
+        pageSession.set("meo23", '');
+        pageSession.set("meo24", '');
+        pageSession.set("meo25", '');
+        pageSession.set("meo26", '');
+        pageSession.set("meo27", '');
+        pageSession.set("meo28", '');
+        pageSession.set("meo29", '');
+        pageSession.set("meo30", '');
+        pageSession.set("meo31", '');
+        pageSession.set("meo32", '');
+        pageSession.set("meo33", '');
+        pageSession.set("meo34", '');
+        pageSession.set("meo35", '');
+        pageSession.set("meo36", '');
+        pageSession.set("meo37", '');
+        pageSession.set("meo38", '');
+        pageSession.set("meo39", '');
+        pageSession.set("meo40", '');
+        pageSession.set("meo41", '');
+        pageSession.set("meo42", '');
+   
     },
     'click #date1' : function(){
         if(pageSession.get("meo1")== "haha"){
