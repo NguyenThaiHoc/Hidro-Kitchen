@@ -10,6 +10,11 @@ Meteor.startup(function() {
 });
 
 Meteor.methods({
+	"createUserFromAdmin":function(emailInput, passwordInput, usernameInput){
+    	Accounts.createUser({email: emailInput, password : passwordInput, profile: { name: usernameInput}});
+        console.log("Ok");
+        //Accounts.createUser({email:email,password:password,username:username})
+  	},
 	"updateLichAn" : function( userIdInput, monthInput, listDayReInput){
 		LichAn.update({userId: userIdInput, month: monthInput},{$set: {userId: userIdInput, month: monthInput, listDayRe: listDayReInput}},{ upsert: true });
 		console.log("add LichAn 0k");
