@@ -2,7 +2,10 @@ var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth() + 1;
 var chooseDay = [];
-
+getDay = function(o){
+    var numOfDay = new Date(year,month,0).getDate();
+    return (((o - pageSession.get("getDay")+1)>0)&&((o - pageSession.get("getDay")+1)<=numOfDay))?(o - pageSession.get("getDay")+1):"";
+}
 
 var pageSession = new ReactiveDict();
 pageSession.set("getMonth", month + "-" + year);
@@ -161,26 +164,257 @@ Template.calendar.helpers({
     },
 });
 Template.calendar.events({
+   'click #sun': function(){
+      var weekDay = 1;
+      var hasActive = false;
+      var numOfDay = new Date(year,month,0).getDate();
+      //kiểm tra cột đó có ngày đã được chọn hay chưa
+      //check out if there is atleast one day in column is chosen
+      for(var i=1;i<7;i++){
+         var date = weekDay + 7*(i-1);
+         if(date > 0){
+           var temp = pageSession.get("meo" + date);
+          if(temp != null){
+               if(temp == "haha") {
+                     hasActive = true;
+                  }
+               }
+            }
+         }
+         //bat dau xu ly
+         if(hasActive){
+            for(var i=1;i<7;i++){
+               var tempDay = weekDay + 7*(i-1);
+               if(getDay(tempDay) > 0){
+                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+               }
+            }
+         }
+         //neu chua co o nao duoc chon trong cot
+      else{
+         for(var i=1;i<7;i++){
+            var tempDay = weekDay + 7*(i-1);
+            if(getDay(tempDay) > 0){
+               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+            }
+         }
+      }
+   },
     'click #mon': function(){
-
+      var weekDay = 2;
+      var hasActive = false;
+      var numOfDay = new Date(year,month,0).getDate();
+      //kiểm tra cột đó có ngày đã được chọn hay chưa
+      //check out if there is atleast one day in column is chosen
+      for(var i=1;i<7;i++){
+         var date = weekDay + 7*(i-1);
+         if(date > 0){
+           var temp = pageSession.get("meo" + date);
+          if(temp != null){
+               if(temp == "haha") {
+                     hasActive = true;
+                  }
+               }
+            }
+         }
+         //bat dau xu ly
+         if(hasActive){
+            for(var i=1;i<7;i++){
+               var tempDay = weekDay + 7*(i-1);
+               if(getDay(tempDay) > 0){
+                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+               }
+            }
+         }
+         //neu chua co o nao duoc chon trong cot
+      else{
+         for(var i=1;i<7;i++){
+            var tempDay = weekDay + 7*(i-1);
+            if(getDay(tempDay) > 0){
+               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+            }
+         }
+      }
     },
     'click #tue': function(){
-        
+      var weekDay = 3;
+      var hasActive = false;
+      var numOfDay = new Date(year,month,0).getDate();
+      //kiểm tra cột đó có ngày đã được chọn hay chưa
+      //check out if there is atleast one day in column is chosen
+      for(var i=1;i<7;i++){
+         var date = weekDay + 7*(i-1);
+         if(date > 0){
+           var temp = pageSession.get("meo" + date);
+          if(temp != null){
+               if(temp == "haha") {
+                     hasActive = true;
+                  }
+               }
+            }
+         }
+         //bat dau xu ly
+         if(hasActive){
+            for(var i=1;i<7;i++){
+               var tempDay = weekDay + 7*(i-1);
+               if(getDay(tempDay) > 0){
+                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+               }
+            }
+         }
+         //neu chua co o nao duoc chon trong cot
+      else{
+         for(var i=1;i<7;i++){
+            var tempDay = weekDay + 7*(i-1);
+            if(getDay(tempDay) > 0){
+               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+            }
+         }
+      }
     },
-    'click #web': function(){
-        
-    },
+    'click #wed': function(){
+      var weekDay = 4;
+      var hasActive = false;
+      var numOfDay = new Date(year,month,0).getDate();
+      //kiểm tra cột đó có ngày đã được chọn hay chưa
+      //check out if there is atleast one day in column is chosen
+      for(var i=1;i<7;i++){
+         var date = weekDay + 7*(i-1);
+         if(date > 0){
+           var temp = pageSession.get("meo" + date);
+          if(temp != null){
+               if(temp == "haha") {
+                     hasActive = true;
+                  }
+               }
+            }
+         }
+         //bat dau xu ly
+         if(hasActive){
+            for(var i=1;i<7;i++){
+               var tempDay = weekDay + 7*(i-1);
+               if(getDay(tempDay) > 0){
+                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+               }
+            }
+         }
+         //neu chua co o nao duoc chon trong cot
+      else{
+         for(var i=1;i<7;i++){
+            var tempDay = weekDay + 7*(i-1);
+            if(getDay(tempDay) > 0){
+               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+            }
+         }
+      }
+   },
     'click #thu': function(){
-        
+      var weekDay = 5;
+      var hasActive = false;
+      var numOfDay = new Date(year,month,0).getDate();
+      //kiểm tra cột đó có ngày đã được chọn hay chưa
+      //check out if there is atleast one day in column is chosen
+      for(var i=1;i<7;i++){
+         var date = weekDay + 7*(i-1);
+         if(date > 0){
+           var temp = pageSession.get("meo" + date);
+          if(temp != null){
+               if(temp == "haha") {
+                     hasActive = true;
+                  }
+               }
+            }
+         }
+         //bat dau xu ly
+         if(hasActive){
+            for(var i=1;i<7;i++){
+               var tempDay = weekDay + 7*(i-1);
+               if(getDay(tempDay) > 0){
+                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+               }
+            }
+         }
+         //neu chua co o nao duoc chon trong cot
+      else{
+         for(var i=1;i<7;i++){
+            var tempDay = weekDay + 7*(i-1);
+            if(getDay(tempDay) > 0){
+               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+            }
+         }
+      }
     },
     'click #fri': function(){
-        
+      var weekDay = 6;
+      var hasActive = false;
+      var numOfDay = new Date(year,month,0).getDate();
+      //kiểm tra cột đó có ngày đã được chọn hay chưa
+      //check out if there is atleast one day in column is chosen
+      for(var i=1;i<7;i++){
+         var date = weekDay + 7*(i-1);
+         if(date > 0){
+           var temp = pageSession.get("meo" + date);
+          if(temp != null){
+               if(temp == "haha") {
+                     hasActive = true;
+                  }
+               }
+            }
+         }
+         //bat dau xu ly
+         if(hasActive){
+            for(var i=1;i<7;i++){
+               var tempDay = weekDay + 7*(i-1);
+               if(getDay(tempDay) > 0){
+                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+               }
+            }
+         }
+         //neu chua co o nao duoc chon trong cot
+      else{
+         for(var i=1;i<7;i++){
+            var tempDay = weekDay + 7*(i-1);
+            if(getDay(tempDay) > 0){
+               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+            }
+         }
+      }
     },
     'click #sat': function(){
-        
-    },
-    'click #sun': function(){
-        
+      var weekDay = 7;
+      var hasActive = false;
+      var numOfDay = new Date(year,month,0).getDate();
+      //kiểm tra cột đó có ngày đã được chọn hay chưa
+      //check out if there is atleast one day in column is chosen
+      for(var i=1;i<7;i++){
+         var date = weekDay + 7*(i-1);
+         if(date > 0){
+           var temp = pageSession.get("meo" + date);
+          if(temp != null){
+               if(temp == "haha") {
+                     hasActive = true;
+                  }
+               }
+            }
+         }
+         //bat dau xu ly
+         if(hasActive){
+            for(var i=1;i<7;i++){
+               var tempDay = weekDay + 7*(i-1);
+               if(getDay(tempDay) > 0){
+                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+               }
+            }
+         }
+         //neu chua co o nao duoc chon trong cot
+      else{
+         for(var i=1;i<7;i++){
+            var tempDay = weekDay + 7*(i-1);
+            if(getDay(tempDay) > 0){
+               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+            }
+         }
+      }
     },
     'click #premonth': function(){
         month = month-1;
@@ -248,7 +482,7 @@ Template.calendar.events({
         pageSession.set("getMonth", nextmonth);
         // ham tinh ngayf
         var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-        pageSession.set("getDay", startDate);    
+        pageSession.set("getDay", startDate);
                 pageSession.set("meo1", '');
         pageSession.set("meo2", '');
         pageSession.set("meo3", '');
@@ -291,7 +525,7 @@ Template.calendar.events({
         pageSession.set("meo40", '');
         pageSession.set("meo41", '');
         pageSession.set("meo42", '');
-   
+
     },
     'click #date1' : function(){
         if(pageSession.get("meo1")== "haha"){
