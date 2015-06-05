@@ -10,9 +10,14 @@ Meteor.startup(function() {
 });
 
 Meteor.methods({
+	// create menu
 	"updateMenu" : function(dateInput, listDishInput){
 		ThucDon.insert({dateI : dateInput, listDish: listDishInput});
 		console.log("addMenu ok");
+	},
+	// if menu exist update menu
+	"updateOldMenu" : function(dateInput, listDishInput){
+		ThucDon.update({dateI: dateInput},{dateI : dateInput, listDish: listDishInput},{multi: true });
 	},
 	"addDish": function(nameInput, costInput, componentsInput){
 		MonAn.insert({name : nameInput, cost: costInput, components: componentsInput});

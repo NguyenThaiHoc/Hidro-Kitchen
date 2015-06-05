@@ -13,8 +13,7 @@
 				<button type = "button" id = "show" class = "btn btn-success form-control">Show</button>
 			</div>
 			<div class = "col-sm-2">
-				<label for = "save">
-
+				<label for = "save">	
 				</label>
 				<button type="button" id="save" class="btn btn-success form-control ">Save</button>
 			</div>
@@ -26,15 +25,18 @@
 				{{>dishChosen}}
 			</div>
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 			<div>
 				<hr>
-				<h3>Nhà bếp có: </h3>
+				<h3>Nhà bếp còn lại: </h3>
 				{{>alldish}}
 			</div>
 			
 		</div>
 	</div>
 </template>
+
+<!-- all of the dish in kitchen -->
 <template name = "alldish">
 	{{#each alldish}}
       {{> edish}}
@@ -44,14 +46,13 @@
 		<label for = "save">
 
 		</label>
-		<button type="button" id="save2" class="btn btn-success form-control ">Save</button>
 	</div>
 </template>
 
 <template name = "edish">
 	<div class = "col-sm-4 hdish">
 		<img src="images/images.jpg">
-		<input class="hcheckbox check" id="xx" type="checkbox" value="hh" name="category"/>
+		<!-- <input class="hcheckbox check" id="xx" type="checkbox" value="hh" name="category"/> -->
 		<p class = "h3">{{name}}</p>
 	    <p class = "h3">{{cost}}</p>
         
@@ -59,6 +60,8 @@
 
 </template>
 
+
+<!-- dish chosen in that day -->
 <template name = "dishChosen">
 	{{#each dishChosentemp}}
       {{> edishChosen}}
@@ -68,7 +71,7 @@
 <template name = "edishChosen">
 	<div class = "col-sm-4 hdish">
 		<img src="images/images.jpg">
-		<input class="hcheckbox check" type="checkbox" value="hh" name="category" checked = "checked"/>
+		<!-- <input class="hcheckbox check" type="checkbox" value="hh" name="category" checked = "checked"/> -->
 		<p class = "h3">{{name}}</p>
 	    <p class = "h3">{{cost}}</p>
 	</div>
