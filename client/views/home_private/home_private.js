@@ -16,6 +16,9 @@ getDay = function(o){
 var pageSession = new ReactiveDict();
 pageSession.set("getMonth", month + "-" + year);
 pageSession.get("hetMonth");
+// get a list of day member registed
+
+
 
 var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
 pageSession.set("getDay", startDate);
@@ -33,6 +36,17 @@ Template.HomePrivate.helpers({
 });
 
 Template.calendar.helpers({
+    initcolor: function(){
+        var registedTemp = LichAn.findOne().listDayRe;
+        for(var i =0; i< 32; i++){
+            if(registedTemp[i]=== 1){
+                var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+                var oo = i +startDate -1;
+                var ootemp = "meo"+oo;
+                pageSession.set(ootemp, "haha");
+            }
+        }
+    },
     getDay : function(o){
         var numOfDay = new Date(year,month,0).getDate();
         // var day = o-startDate+1;
@@ -178,7 +192,7 @@ Template.calendar.events({
             // var ide = "d"+i;
             listDayRe[i] = 0;
         };
-        alert(listDayRe)
+        // alert(listDayRe)
         var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
         var numOfDay = new Date(year,month,0).getDate();
 
@@ -435,7 +449,7 @@ Template.calendar.events({
             //var dindex = "d"+day;
             listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
         }
-        alert(listDayRe);
+        // alert(listDayRe);
         // var lichAnTemp = LichAn.find().fetch
         // if()
         var monthtemp = year+"/"+month;
