@@ -455,42 +455,43 @@ Template.calendar.events({
         var monthtemp = year+"/"+month;
         Meteor.call('updateLichAn', Meteor.user()._id, monthtemp, listDayRe);
     },
-    'click #sun': function(){
-      var weekDay = 1;
-      var hasActive = false;
-      var numOfDay = new Date(year,month,0).getDate();
-      //kiểm tra cột đó có ngày đã được chọn hay chưa
-      //check out if there is atleast one day in column is chosen
-      for(var i=1;i<7;i++){
-         var date = weekDay + 7*(i-1);
-         if(date > 0){
-           var temp = pageSession.get("meo" + date);
-          if(temp != null){
-               if(temp == "haha") {
-                     hasActive = true;
-                  }
-               }
-            }
-         }
-         //bat dau xu ly
-         if(hasActive){
-            for(var i=1;i<7;i++){
-               var tempDay = weekDay + 7*(i-1);
-               if(getDay(tempDay) > 0){
-                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
-               }
-            }
-         }
-         //neu chua co o nao duoc chon trong cot
-      else{
-         for(var i=1;i<7;i++){
-            var tempDay = weekDay + 7*(i-1);
-            if(getDay(tempDay) > 0){
-               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
-            }
-         }
-      }
-   },
+    //chu nhat la ngay nghi,khong cho dang ki
+   //  'click #sun': function(){
+   //    var weekDay = 1;
+   //    var hasActive = false;
+   //    var numOfDay = new Date(year,month,0).getDate();
+   //    //kiểm tra cột đó có ngày đã được chọn hay chưa
+   //    //check out if there is atleast one day in column is chosen
+   //    for(var i=1;i<7;i++){
+   //       var date = weekDay + 7*(i-1);
+   //       if(date > 0){
+   //         var temp = pageSession.get("meo" + date);
+   //        if(temp != null){
+   //             if(temp == "haha") {
+   //                   hasActive = true;
+   //                }
+   //             }
+   //          }
+   //       }
+   //       //bat dau xu ly
+   //       if(hasActive){
+   //          for(var i=1;i<7;i++){
+   //             var tempDay = weekDay + 7*(i-1);
+   //             if(getDay(tempDay) > 0){
+   //                pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+   //             }
+   //          }
+   //       }
+   //       //neu chua co o nao duoc chon trong cot
+   //    else{
+   //       for(var i=1;i<7;i++){
+   //          var tempDay = weekDay + 7*(i-1);
+   //          if(getDay(tempDay) > 0){
+   //             pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+   //          }
+   //       }
+   //    }
+   // },
     'click #mon': function(){
       var weekDay = 2;
       var hasActive = false;
@@ -671,42 +672,43 @@ Template.calendar.events({
          }
       }
     },
-    'click #sat': function(){
-      var weekDay = 7;
-      var hasActive = false;
-      var numOfDay = new Date(year,month,0).getDate();
-      //kiểm tra cột đó có ngày đã được chọn hay chưa
-      //check out if there is atleast one day in column is chosen
-      for(var i=1;i<7;i++){
-         var date = weekDay + 7*(i-1);
-         if(date > 0){
-           var temp = pageSession.get("meo" + date);
-          if(temp != null){
-               if(temp == "haha") {
-                     hasActive = true;
-                  }
-               }
-            }
-         }
-         //bat dau xu ly
-         if(hasActive){
-            for(var i=1;i<7;i++){
-               var tempDay = weekDay + 7*(i-1);
-               if(getDay(tempDay) > 0){
-                  pageSession.set("meo" + (weekDay + 7*(i-1)), '');
-               }
-            }
-         }
-         //neu chua co o nao duoc chon trong cot
-      else{
-         for(var i=1;i<7;i++){
-            var tempDay = weekDay + 7*(i-1);
-            if(getDay(tempDay) > 0){
-               pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
-            }
-         }
-      }
-    },
+    // thu 7 cung la ngay nghi.khong cho dang ki
+   //  'click #sat': function(){
+   //    var weekDay = 7;
+   //    var hasActive = false;
+   //    var numOfDay = new Date(year,month,0).getDate();
+   //    //kiểm tra cột đó có ngày đã được chọn hay chưa
+   //    //check out if there is atleast one day in column is chosen
+   //    for(var i=1;i<7;i++){
+   //       var date = weekDay + 7*(i-1);
+   //       if(date > 0){
+   //         var temp = pageSession.get("meo" + date);
+   //        if(temp != null){
+   //             if(temp == "haha") {
+   //                   hasActive = true;
+   //                }
+   //             }
+   //          }
+   //       }
+   //       //bat dau xu ly
+   //       if(hasActive){
+   //          for(var i=1;i<7;i++){
+   //             var tempDay = weekDay + 7*(i-1);
+   //             if(getDay(tempDay) > 0){
+   //                pageSession.set("meo" + (weekDay + 7*(i-1)), '');
+   //             }
+   //          }
+   //       }
+   //       //neu chua co o nao duoc chon trong cot
+   //    else{
+   //       for(var i=1;i<7;i++){
+   //          var tempDay = weekDay + 7*(i-1);
+   //          if(getDay(tempDay) > 0){
+   //             pageSession.set("meo" + (weekDay + 7*(i-1)), 'haha');
+   //          }
+   //       }
+   //    }
+   //  },
     'click #premonth': function(){
         month = month-1;
         var premonth = month +"-" + year;
@@ -818,36 +820,36 @@ Template.calendar.events({
         pageSession.set("meo42", '');
 
     },
-    'click #date1' : function(){
-        //-- hander event register date1
-        // if #date1 available then push day of #date 1 into listDayRe
-        // highlight date registed
-
-
-        var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-        var numOfDay = new Date(year,month,0).getDate();
-        var day = 1-startDate+1;
-
-        if(pageSession.get("meo1")== "haha"){
-            pageSession.set("meo1", '');
-            // var daytemp = year+"/"+month+"/" +day;
-            // for (var i = listDayRe.length - 1; i >= 0; i--){
-            //     if(listDayRe[i] == daytemp){
-            //         listDayRe.splice(i,1);
-            //     }
-            // };
-        }else{
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0){
-                // push to listDayRe 
-                // var daytemp = year+"/"+month+"/" +day;
-                // listDayRe.push(tempDay);
-                pageSession.set("meo1", "haha");
-            }
-        }
-
-
-    },
+   //  'click #date1' : function(){
+   //      //-- hander event register date1
+   //      // if #date1 available then push day of #date 1 into listDayRe
+   //      // highlight date registed
+    //
+    //
+   //      var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //      var numOfDay = new Date(year,month,0).getDate();
+   //      var day = 1-startDate+1;
+    //
+   //      if(pageSession.get("meo1")== "haha"){
+   //          pageSession.set("meo1", '');
+   //          // var daytemp = year+"/"+month+"/" +day;
+   //          // for (var i = listDayRe.length - 1; i >= 0; i--){
+   //          //     if(listDayRe[i] == daytemp){
+   //          //         listDayRe.splice(i,1);
+   //          //     }
+   //          // };
+   //      }else{
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0){
+   //              // push to listDayRe
+   //              // var daytemp = year+"/"+month+"/" +day;
+   //              // listDayRe.push(tempDay);
+   //              pageSession.set("meo1", "haha");
+   //          }
+   //      }
+    //
+    //
+   //  },
     'click #date2' : function(){
         var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
         var numOfDay = new Date(year,month,0).getDate();
@@ -864,7 +866,7 @@ Template.calendar.events({
             //     }
             // };
         }else{
-            
+
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0){
                 // var daytemp = year+"/"+month+"/" +day;
@@ -921,30 +923,30 @@ Template.calendar.events({
             pageSession.set("meo6", "haha");
         }
     },
-    'click #date7' : function(){
-        if(pageSession.get("meo7")== "haha"){
-            pageSession.set("meo7", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 7-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo7", "haha");
-        }
-    },
-    'click #date8' : function(){//chuyen date thanh date8
-        if(pageSession.get("meo8")== "haha"){// chuyen meo nay thanh meo8 va tuong tu voi cac cai duoi
-            pageSession.set("meo8", '');    // chuyen meo
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 8-startDate+1;// chuyen so 4 thanh so 8 theo #date va tuong tu voi cai ben duoi
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo8", "haha");// chuyen meo
-        }
-    },
+   //  'click #date7' : function(){
+   //      if(pageSession.get("meo7")== "haha"){
+   //          pageSession.set("meo7", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 7-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo7", "haha");
+   //      }
+   //  },
+   //  'click #date8' : function(){//chuyen date thanh date8
+   //      if(pageSession.get("meo8")== "haha"){// chuyen meo nay thanh meo8 va tuong tu voi cac cai duoi
+   //          pageSession.set("meo8", '');    // chuyen meo
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 8-startDate+1;// chuyen so 4 thanh so 8 theo #date va tuong tu voi cai ben duoi
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo8", "haha");// chuyen meo
+   //      }
+   //  },
     'click #date9' : function(){
         if(pageSession.get("meo9")== "haha"){
             pageSession.set("meo9", '');
@@ -1005,30 +1007,30 @@ Template.calendar.events({
             pageSession.set("meo13", "haha");
         }
     },
-    'click #date14' : function(){
-        if(pageSession.get("meo14")== "haha"){
-            pageSession.set("meo14", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 14-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo14", "haha");
-        }
-    },
-    'click #date15' : function(){
-        if(pageSession.get("meo15")== "haha"){
-            pageSession.set("meo15", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 15-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo15", "haha");
-        }
-    },
+   //  'click #date14' : function(){
+   //      if(pageSession.get("meo14")== "haha"){
+   //          pageSession.set("meo14", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 14-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo14", "haha");
+   //      }
+   //  },
+   //  'click #date15' : function(){
+   //      if(pageSession.get("meo15")== "haha"){
+   //          pageSession.set("meo15", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 15-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo15", "haha");
+   //      }
+   //  },
     'click #date16' : function(){
         if(pageSession.get("meo16")== "haha"){
             pageSession.set("meo16", '');
@@ -1089,30 +1091,30 @@ Template.calendar.events({
             pageSession.set("meo20", "haha");
         }
     },
-    'click #date21' : function(){
-        if(pageSession.get("meo21")== "haha"){
-            pageSession.set("meo21", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 21-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo21", "haha");
-        }
-    },
-    'click #date22' : function(){
-        if(pageSession.get("meo22")== "haha"){
-            pageSession.set("meo22", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 22-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo22", "haha");
-        }
-    },
+   //  'click #date21' : function(){
+   //      if(pageSession.get("meo21")== "haha"){
+   //          pageSession.set("meo21", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 21-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo21", "haha");
+   //      }
+   //  },
+   //  'click #date22' : function(){
+   //      if(pageSession.get("meo22")== "haha"){
+   //          pageSession.set("meo22", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 22-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo22", "haha");
+   //      }
+   //  },
     'click #date23' : function(){
         if(pageSession.get("meo23")== "haha"){
             pageSession.set("meo23", '');
@@ -1173,30 +1175,30 @@ Template.calendar.events({
             pageSession.set("meo27", "haha");
         }
     },
-    'click #date28' : function(){
-        if(pageSession.get("meo28")== "haha"){
-            pageSession.set("meo28", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 28-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo28", "haha");
-        }
-    },
-    'click #date29' : function(){
-        if(pageSession.get("meo29")== "haha"){
-            pageSession.set("meo29", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 29-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo29", "haha");
-        }
-    },
+   //  'click #date28' : function(){
+   //      if(pageSession.get("meo28")== "haha"){
+   //          pageSession.set("meo28", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 28-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo28", "haha");
+   //      }
+   //  },
+   //  'click #date29' : function(){
+   //      if(pageSession.get("meo29")== "haha"){
+   //          pageSession.set("meo29", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 29-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo29", "haha");
+   //      }
+   //  },
     'click #date30' : function(){
         if(pageSession.get("meo30")== "haha"){
             pageSession.set("meo30", '');
@@ -1257,30 +1259,30 @@ Template.calendar.events({
             pageSession.set("meo34", "haha");
         }
     },
-    'click #date35' : function(){
-        if(pageSession.get("meo35")== "haha"){
-            pageSession.set("meo35", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 35-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo35", "haha");
-        }
-    },
-    'click #date36' : function(){
-        if(pageSession.get("meo36")== "haha"){
-            pageSession.set("meo36", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 36-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo36", "haha");
-        }
-    },
+   //  'click #date35' : function(){
+   //      if(pageSession.get("meo35")== "haha"){
+   //          pageSession.set("meo35", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 35-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo35", "haha");
+   //      }
+   //  },
+   //  'click #date36' : function(){
+   //      if(pageSession.get("meo36")== "haha"){
+   //          pageSession.set("meo36", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 36-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //          pageSession.set("meo36", "haha");
+   //      }
+   //  },
     'click #date37' : function(){
         if(pageSession.get("meo37")== "haha"){
             pageSession.set("meo37", '');
@@ -1340,19 +1342,20 @@ Template.calendar.events({
             if(checkday!=0)
             pageSession.set("meo41", "haha");
         }
-    },
-    'click #date42' : function(){
-        if(pageSession.get("meo42")== "haha"){
-            pageSession.set("meo42", '');
-        }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 42-startDate+1;
-            var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-               pageSession.set("meo42", "haha");
-        }
     }
+    //,
+   //  'click #date42' : function(){
+   //      if(pageSession.get("meo42")== "haha"){
+   //          pageSession.set("meo42", '');
+   //      }else{
+   //          var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+   //          var numOfDay = new Date(year,month,0).getDate();
+   //          var day = 42-startDate+1;
+   //          var checkday= (day>0 && day<=numOfDay)?day:0;
+   //          if(checkday!=0)
+   //             pageSession.set("meo42", "haha");
+   //      }
+   //  }
 });
 
 // Template.calendar.colortable = function() {
