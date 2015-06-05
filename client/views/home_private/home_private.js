@@ -2,6 +2,7 @@ var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth() + 1;
 var chooseDay = [];
+var listDayRe = []; // list of day user registed eat------------------------------------------ da sua tai day
 getDay = function(o){
     var numOfDay = new Date(year,month,0).getDate();
     return (((o - pageSession.get("getDay")+1)>0)&&((o - pageSession.get("getDay")+1)<=numOfDay))?(o - pageSession.get("getDay")+1):"";
@@ -164,7 +165,12 @@ Template.calendar.helpers({
     },
 });
 Template.calendar.events({
-   'click #sun': function(){
+    'click #save': function(){
+        // save new report registed-----------------------------------------
+
+        alert(listDayRe);
+    },
+    'click #sun': function(){
       var weekDay = 1;
       var hasActive = false;
       var numOfDay = new Date(year,month,0).getDate();
@@ -528,27 +534,56 @@ Template.calendar.events({
 
     },
     'click #date1' : function(){
+        //-- hander event register date1
+        // if #date1 available then push day of #date 1 into listDayRe
+        // highlight date registed
+
+
+        var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+        var numOfDay = new Date(year,month,0).getDate();
+        var day = 1-startDate+1;
+
         if(pageSession.get("meo1")== "haha"){
             pageSession.set("meo1", '');
+            var daytemp = year+"/"+month+"/" +day;
+            for (var i = listDayRe.length - 1; i >= 0; i--){
+                if(listDayRe[i] == daytemp){
+                    listDayRe.splice(i,1);
+                }
+            };
         }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 1-startDate+1;
             var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo1", "haha");
+            if(checkday!=0){
+                // push to listDayRe -------------------------------------------- da sua tai day
+                var daytemp = year+"/"+month+"/" +day;
+                listDayRe.push(tempDay);
+                pageSession.set("meo1", "haha");
+            }
         }
+
+
     },
     'click #date2' : function(){
+        var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+        var numOfDay = new Date(year,month,0).getDate();
+        var day = 2-startDate+1;
+
         if(pageSession.get("meo2")== "haha"){
             pageSession.set("meo2", '');
+            var daytemp = year+"/"+month+"/" +day;
+            for (var i = listDayRe.length - 1; i >= 0; i--){
+                if(listDayRe[i] == daytemp){
+                    listDayRe.splice(i,1);
+                }
+            };
         }else{
-            var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
-            var numOfDay = new Date(year,month,0).getDate();
-            var day = 2-startDate+1;
+            
             var checkday= (day>0 && day<=numOfDay)?day:0;
-            if(checkday!=0)
-            pageSession.set("meo2", "haha");
+            if(checkday!=0){
+                var daytemp = year+"/"+month+"/" +day;
+                listDayRe.push(daytemp);
+                pageSession.set("meo2", "haha");
+            }
         }
     },
     'click #date3' : function(){

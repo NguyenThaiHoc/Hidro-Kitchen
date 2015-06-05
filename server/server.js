@@ -17,7 +17,8 @@ Meteor.methods({
 	},
 	// if menu exist update menu
 	"updateOldMenu" : function(dateInput, listDishInput){
-		ThucDon.update({dateI: dateInput},{dateI : dateInput, listDish: listDishInput},{multi: true });
+		ThucDon.update({dateI: dateInput},{ listDish: listDishInput},{multi: true })
+		// ThucDon.update({dateI: dateInput},{dateI : dateInput, listDish: listDishInput},{multi: true });
 	},
 	"addDish": function(nameInput, costInput, componentsInput){
 		MonAn.insert({name : nameInput, cost: costInput, components: componentsInput});
