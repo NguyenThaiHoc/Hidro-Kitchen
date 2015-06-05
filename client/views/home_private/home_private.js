@@ -1,3 +1,8 @@
+
+// dont have a lot of time so this code is very mad
+
+
+
 var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth() + 1;
@@ -167,8 +172,274 @@ Template.calendar.helpers({
 Template.calendar.events({
     'click #save': function(){
         // save new report registed-----------------------------------------
+        // listDayRe.splice(0, listDayRe.length);
+        listDayRe = new Array();
+        for (var i = 1; i <=42; i++) {
+            // var ide = "d"+i;
+            listDayRe[i] = 0;
+        };
+        alert(listDayRe)
+        var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+        var numOfDay = new Date(year,month,0).getDate();
 
+        if(pageSession.get("meo1")== "haha"){
+            var day = 1-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo2")== "haha"){
+            var day = 2-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo3")== "haha"){
+            var day = 3-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo4")== "haha"){
+            var day = 4-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo5")== "haha"){
+            var day = 5-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo6")== "haha"){
+            var day = 6-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo7")== "haha"){
+            var day = 7-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo8")== "haha"){
+            var day = 8-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo9")== "haha"){
+            var day = 9-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo10")== "haha"){
+            var day = 10-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo11")== "haha"){
+            var day = 11-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo12")== "haha"){
+            var day = 12-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo13")== "haha"){
+            var day = 13-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo14")== "haha"){
+            var day = 14-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo15")== "haha"){
+            var day = 15-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo16")== "haha"){
+            var day = 16-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo17")== "haha"){
+            var day = 17-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo18")== "haha"){
+            var day = 18-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo19")== "haha"){
+            var day = 19-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo20")== "haha"){
+            var day = 20-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo21")== "haha"){
+            var day = 21-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo22")== "haha"){
+            var day = 22-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo23")== "haha"){
+            var day = 23-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo24")== "haha"){
+            var day = 24-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo25")== "haha"){
+            var day = 25-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo26")== "haha"){
+            var day = 26-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo27")== "haha"){
+            var day = 26-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo28")== "haha"){
+            var day = 28-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo29")== "haha"){
+            var day = 29-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo30")== "haha"){
+            var day = 30-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo31")== "haha"){
+            var day = 31-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo32")== "haha"){
+            var day = 32-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo33")== "haha"){
+            var day = 33-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo34")== "haha"){
+            var day = 34-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo35")== "haha"){
+            var day = 35-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo36")== "haha"){
+            var day = 36-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo37")== "haha"){
+            var day = 37-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo38")== "haha"){
+            var day = 38-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo39")== "haha"){
+            var day = 39-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo40")== "haha"){
+            var day = 40-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo41")== "haha"){
+            var day = 41-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
+        if(pageSession.get("meo42")== "haha"){
+            var day = 42-startDate+1;
+            var daytemp = year+"/"+month+"/" +day;
+            //var dindex = "d"+day;
+            listDayRe[day] = 1;//listDayRe[dindex] = daytemp;
+        }
         alert(listDayRe);
+        // var lichAnTemp = LichAn.find().fetch
+        // if()
+        var monthtemp = year+"/"+month;
+        Meteor.call('updateLichAn', Meteor.user()._id, monthtemp, listDayRe);
     },
     'click #sun': function(){
       var weekDay = 1;
@@ -545,18 +816,18 @@ Template.calendar.events({
 
         if(pageSession.get("meo1")== "haha"){
             pageSession.set("meo1", '');
-            var daytemp = year+"/"+month+"/" +day;
-            for (var i = listDayRe.length - 1; i >= 0; i--){
-                if(listDayRe[i] == daytemp){
-                    listDayRe.splice(i,1);
-                }
-            };
+            // var daytemp = year+"/"+month+"/" +day;
+            // for (var i = listDayRe.length - 1; i >= 0; i--){
+            //     if(listDayRe[i] == daytemp){
+            //         listDayRe.splice(i,1);
+            //     }
+            // };
         }else{
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0){
-                // push to listDayRe -------------------------------------------- da sua tai day
-                var daytemp = year+"/"+month+"/" +day;
-                listDayRe.push(tempDay);
+                // push to listDayRe 
+                // var daytemp = year+"/"+month+"/" +day;
+                // listDayRe.push(tempDay);
                 pageSession.set("meo1", "haha");
             }
         }
@@ -567,21 +838,23 @@ Template.calendar.events({
         var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
         var numOfDay = new Date(year,month,0).getDate();
         var day = 2-startDate+1;
+        // var daytemp = year+"/"+month+"/" +day;
+        // listDayRe.push(daytemp);
 
         if(pageSession.get("meo2")== "haha"){
             pageSession.set("meo2", '');
-            var daytemp = year+"/"+month+"/" +day;
-            for (var i = listDayRe.length - 1; i >= 0; i--){
-                if(listDayRe[i] == daytemp){
-                    listDayRe.splice(i,1);
-                }
-            };
+            // var daytemp = year+"/"+month+"/" +day;
+            // for (var i = listDayRe.length - 1; i >= 0; i--){
+            //     if(listDayRe[i] == daytemp){
+            //         listDayRe.splice(i,1);
+            //     }
+            // };
         }else{
             
             var checkday= (day>0 && day<=numOfDay)?day:0;
             if(checkday!=0){
-                var daytemp = year+"/"+month+"/" +day;
-                listDayRe.push(daytemp);
+                // var daytemp = year+"/"+month+"/" +day;
+                // listDayRe.push(daytemp);
                 pageSession.set("meo2", "haha");
             }
         }

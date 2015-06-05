@@ -16,7 +16,7 @@ Template.InsertDish.events({
 		var khoiluong = document.getElementById("khoiluongthanhphanmoi").value;
 		var donvi = document.getElementById("donvi").value;
 		if(ten != "" && khoiluong != "" && donvi != ""){
-			components[count] = [ten, khoiluong, donvi];
+			components[count] = {"ten":ten, "khoiluong":khoiluong, "donvi":donvi};
 			count++;
 			cmtCount[count] = 0;
 			var thanhphanmoi =

@@ -10,6 +10,10 @@ Meteor.startup(function() {
 });
 
 Meteor.methods({
+	"updateLichAn" : function( userIdInput, monthInput, listDayReInput){
+		LichAn.update({userId: userIdInput, month: monthInput},{$set: {userId: userIdInput, month: monthInput, listDayRe: listDayReInput}},{ upsert: true });
+		console.log("add LichAn 0k");
+	},
 	// create menu
 	"updateMenu" : function(dateInput, listDishInput){
 		ThucDon.insert({dateI : dateInput, listDish: listDishInput});
@@ -17,8 +21,11 @@ Meteor.methods({
 	},
 	// if menu exist update menu
 	"updateOldMenu" : function(dateInput, listDishInput){
-		ThucDon.update({dateI: dateInput},{ listDish: listDishInput},{multi: true })
+		// ThucDon.remove({dateI: dateInput},{justOne: false});
+		// ThucDon.insert({dateI : dateInput, listDish: listDishInput});
+		ThucDon.update({dateI: dateInput},{$set: { listDish: listDishInput}},{multi: false })
 		// ThucDon.update({dateI: dateInput},{dateI : dateInput, listDish: listDishInput},{multi: true });
+		console("update Ok")
 	},
 	"addDish": function(nameInput, costInput, componentsInput){
 		MonAn.insert({name : nameInput, cost: costInput, components: componentsInput});
