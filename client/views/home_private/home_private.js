@@ -1,7 +1,7 @@
 
 // dont have a lot of time so this code is very mad
 
-
+// Date(to).getDay !=0 && Date(to).getDay !=6
 
 var today = new Date();
 var year = today.getFullYear();
@@ -11,6 +11,20 @@ var listDayRe = []; // list of day user registed eat----------------------------
 getDay = function(o){
     var numOfDay = new Date(year,month,0).getDate();
     return (((o - pageSession.get("getDay")+1)>0)&&((o - pageSession.get("getDay")+1)<=numOfDay))?(o - pageSession.get("getDay")+1):"";
+}
+
+haha = function(o){
+    alert(o)
+}
+
+
+getTomorrow = function(date){
+    var today = new Date(date);
+    var tomorrow= new Date();
+    tomorrow.setTime(today.getTime() + (24 * 60 * 60 * 1000));
+    var tomorrowDate = (tomorrow.getDate()<10)?("0"+tomorrow.getDate()):tomorrow.getDate();
+    var tomorrowMonth = (tomorrow.getMonth()+1<10)?("0"+(tomorrow.getMonth()+1)):(tomorrow.getMonth()+1);
+    return tomorrow.getFullYear() + "-" + tomorrowMonth + "-" +  tomorrowDate  ;
 }
 
 var pageSession = new ReactiveDict();
@@ -28,11 +42,76 @@ Template.HomePrivate.rendered = function() {
 
 };
 
+Template.ForAdmin.helpers({
+    //kiem tra xem da tao menu truoc 1 tuan chua??
+    'checkMenuWeek' : function(){
+        var tempday = new Date();
+        tempday = getTomorrow(tempday);
+        var menuLazy = [];
+        for(var i =0; i< 7; i++){
+            if(Date(tempday).getDay !=0 && Date(tempday).getDay !=6){
+                var tempdish = ThucDon.findOne({dateI: tempday});
+                if(tempdish == null){
+                    menuLazy.push(tempday);
+                }else{
+                    var tempdishlist = tempdish.listDish;
+                    if (tempdishlist.length == 0) {
+                        menuLazy.push(tempday);
+                    };
+                }
+            }
+            tempday = getTomorrow(tempday);
+        }
+        alert("Bạn cần phải sắp xếp thực đơn cho những ngày sau: "+menuLazy);
+    }
+});
+
 Template.HomePrivate.events({
 
 });
 
 Template.HomePrivate.helpers({
+});
+
+
+Template.menuforuser.helpers({
+    getToday: function(){
+        var now = new Date();
+        var month = (now.getMonth() + 1);               
+        var day = now.getDate();
+        if(month < 10) 
+            month = "0" + month;
+        if(day < 10) 
+            day = "0" + day;
+        var today =  now.getFullYear()+ '-' +  month + '-' + day ;
+        return today;
+    },
+    alledishforuser: function(e, t){
+        return pageSession.get("alledishforuser");
+    },
+    getTomorrow: function(){
+        var today = new Date();
+        var tomorrow= new Date();
+        tomorrow.setTime(today.getTime() + (24 * 60 * 60 * 1000));
+        var tomorrowDate = (tomorrow.getDate()<10)?("0"+tomorrow.getDate()):tomorrow.getDate();
+        var tomorrowMonth = (tomorrow.getMonth()+1<10)?("0"+(tomorrow.getMonth()+1)):(tomorrow.getMonth()+1);
+        return tomorrow.getFullYear() + "-" + tomorrowMonth + "-" +  tomorrowDate  ;
+    },
+});
+
+Template.menuforuser.events({
+    'click #show': function(e, t){
+        var date = t.find('#date').value.trim();
+        var tomr = getTomorrow(date);
+        var menuInTomr = ThucDon.findOne({dateI : date});
+        var listIdDishInTomr = []
+        if(menuInTomr != null){
+            listIdDishInTomr = menuInTomr.listDish;
+
+        }
+        var listDishInTomr = MonAn.find({_id: { $in: listIdDishInTomr}}, {sort: { name: 1, cost: -1}}).fetch();
+        pageSession.set("alledishforuser", listDishInTomr);
+    }
 });
 
 Template.calendar.helpers({
@@ -452,8 +531,21 @@ Template.calendar.events({
         // alert(listDayRe);
         // var lichAnTemp = LichAn.find().fetch
         // if()
-        var monthtemp = year+"/"+month;
+        var monthtemp = year+"-"+month;
+
+        // kiem tra ngay hop le
+        for (var i = 0; i < listDayRe.length; i++) {
+            if(listDayRe[i]!=0){
+                var temp = year+"-"+month+"-"+i;
+                var tempca = new Date(temp);
+                if(today.valueOf() > tempca.valueOf()){
+                    alert("Ngày " +temp+ "đã qua, không thể đăng ký được")
+                    return false;
+                }    
+            }
+        };
         Meteor.call('updateLichAn', Meteor.user()._id, monthtemp, listDayRe);
+        alert(" Thanh cong !!!")
     },
     //chu nhat la ngay nghi,khong cho dang ki
    //  'click #sun': function(){
@@ -762,6 +854,17 @@ Template.calendar.events({
 
         // ham tinh ngay
 
+        var tempday = year+"-"+month;
+        var registedTemp = LichAn.findOne({month: tempday}).listDayRe;
+        for(var i =0; i< 32; i++){
+            if(registedTemp[i]=== 1){
+                var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+                var oo = i +startDate -1;
+                var ootemp = "meo"+oo;
+                pageSession.set(ootemp, "haha");
+            }
+        }
+
         var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
         pageSession.set("getDay", startDate);
     },
@@ -818,6 +921,19 @@ Template.calendar.events({
         pageSession.set("meo40", '');
         pageSession.set("meo41", '');
         pageSession.set("meo42", '');
+
+
+        // dat lai mau 
+        var tempday = year+"-"+month;
+        var registedTemp = LichAn.findOne({month: tempday}).listDayRe;
+        for(var i =0; i< 32; i++){
+            if(registedTemp[i]=== 1){
+                var startDate = new Date(year+"/"+month+"/" +1).getDay() + 1;
+                var oo = i +startDate -1;
+                var ootemp = "meo"+oo;
+                pageSession.set(ootemp, "haha");
+            }
+        }
 
     },
    //  'click #date1' : function(){

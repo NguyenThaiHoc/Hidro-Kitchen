@@ -1,0 +1,44 @@
+<template name = "Pay">
+	<div class = "container">
+		<p class = "h2 col-sm-4">Bảng thanh toán: </p>
+		<div class = "col-sm-4">
+			<label for="date">
+			</label>
+			<input class="form-control" id="date" type="date" value= {{getToday}}>
+		</div>
+		<div class = "col-sm-2">
+			<label for = "show">
+			</label>
+			<button type = "button" id = "show" class = "btn btn-success form-control">Show</button>
+		</div>
+		<div class = "col-sm-2">
+			<label for = "save">	
+			</label>
+			<button type="button" id="save" class="btn btn-success form-control ">Save</button>
+		</div>
+		<br><br><br>
+		<hr>
+		<table class = "table table-striped table-hover">
+			<thead>
+				<tr>
+					<th class="th-sortable">Đã đăng ký</th>
+					<th>Đã thanh toán</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each usercheckpays}}
+					{{> usercheckpay}}
+				{{/each}}
+			</tbody>
+		</table>
+
+		
+	</div>
+</template>
+
+<template name = "usercheckpay">
+	<tr>
+	    <th>{{profile.name}}</th>
+	    <th><input class="hcheckbox check" type="checkbox" value="hh" name="category"/></th>
+	</tr>
+</template>
