@@ -16,6 +16,10 @@
             {{> bigbuttonregister}}
             <!-- {{>menuforuser}} -->
         </div>
+
+        <div class = "col-md-12">
+            {{>xemchiphi}}
+        </div>
 	</div>
 </template>
 
@@ -142,7 +146,37 @@
     <h2>Đăng ký nhanh</h2>
     <hr><br>
     <div style = "width: 300px; height: 300px; position: relative; border-radius:300px;margin: 100px auto">
-    <img src="images/no.jpg" style = "height: 100%; width: 100%">
-    <h3> Bạn đã đăng ký ăn ngày</h3>
+    <img id = "clickimg" src="images/{{img}}" style = "height: 100%; width: 100%">
+    <h3> Bạn {{da_chua}} đăng ký ăn ngày {{ngaydangky}}</h3>
     </div>
+</template>
+
+<template name = "xemchiphi">
+    <h2>Xem chi phí tháng {{thangchiphi}}</h2>
+    <hr><br><br>
+    <table class = "table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="th-sortable">Ngày ăn</th>
+                <th> Giá</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each chiphiuser}}
+                {{>ngayan}}
+            {{/each}}
+            <tr>
+                <th>Tổng</th>
+                <th>900.000</th>
+            </tr>
+        </tbody>
+    </table>
+</template>
+
+<template name = "ngayan">
+    <tr>
+        <th>.../06/2015</th>
+        <th>65.000</th>
+    </tr>
+
 </template>

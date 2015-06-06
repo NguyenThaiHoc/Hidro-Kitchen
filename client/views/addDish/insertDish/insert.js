@@ -38,7 +38,9 @@ Template.InsertDish.events({
 		var cost = t.find('#cost').value.trim();
 		// alert(components);
 		// submit_button.button("loading");
-		Meteor.call('addDish', name, cost, components);
+		var tempnumber =  Math.floor((Math.random() * 20) + 1);
+		var image = "i"+tempnumber+".png"
+		Meteor.call('addDish', name, cost, image, components);
 	}
 
 });

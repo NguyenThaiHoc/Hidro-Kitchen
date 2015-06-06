@@ -30,6 +30,8 @@ getTomorrow = function(date){
 var pageSession = new ReactiveDict();
 pageSession.set("getMonth", month + "-" + year);
 pageSession.get("hetMonth");
+pageSession.set("img", "no.jpg");
+pageSession.set("da_chua", "chưa");
 // get a list of day member registed
 
 
@@ -73,6 +75,53 @@ Template.HomePrivate.events({
 Template.HomePrivate.helpers({
 });
 
+Template.xemchiphi.helpers({
+    thangchiphi: function(){
+        return month+"-"+year;
+    },
+    chiphiuser: function(){
+        var songaydaan = LichAn.findOne();
+        var listngay = songaydaan.listDayRe;
+        var ngayan = [];
+        // alert(listngay);
+        for (var i = 0; i < listngay.length; i++) {
+            if(listngay[i] != 0){
+                ngayan.push(i +"/"+month+"/"+year);
+            }
+        };
+        return ngayan;
+    }
+});
+
+Template.bigbuttonregister.helpers({
+    img : function(){
+        return pageSession.get("img")
+    },
+    ngaydangky: function(){
+        var todaytemp = new Date();
+        var tomorrowtemp = getTomorrow(todaytemp);
+        tomorrowtemp = getTomorrow(tomorrowtemp)
+        // while(Date(tomorrowtemp).getDay !=0 && Date(tomorrowtemp).getDay !=6){
+        //     tomorrowtemp = getTomorrow(tomorrowtemp);
+        // }
+        return tomorrowtemp;
+    },
+    da_chua: function(){
+        return pageSession.get("da_chua");
+    }
+});
+
+Template.bigbuttonregister.events({
+    'click #clickimg': function(){
+        if(pageSession.get("img") == "no.jpg"){
+            pageSession.set("img", "yes.png");
+            pageSession.set("da_chua", "đã");
+        }else{
+            pageSession.set("img", "no.jpg");
+            pageSession.set("da_chua", "chưa");
+        }
+    }
+});
 
 Template.menuforuser.helpers({
     getToday: function(){

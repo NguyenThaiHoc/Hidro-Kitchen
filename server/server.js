@@ -32,8 +32,8 @@ Meteor.methods({
 		// ThucDon.update({dateI: dateInput},{dateI : dateInput, listDish: listDishInput},{multi: true });
 		console("update Ok")
 	},
-	"addDish": function(nameInput, costInput, componentsInput){
-		MonAn.insert({name : nameInput, cost: costInput, components: componentsInput});
+	"addDish": function(nameInput, costInput, imageInput, componentsInput){
+		MonAn.insert({name : nameInput, cost: costInput, image: imageInput, components: componentsInput});
 		console.log("addDish ok");
 	},
 	"createUserAccount": function(options) {
