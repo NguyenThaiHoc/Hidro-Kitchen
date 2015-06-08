@@ -69,10 +69,21 @@ Template.ForAdmin.helpers({
 });
 
 Template.HomePrivate.events({
-
 });
 
 Template.HomePrivate.helpers({
+        isAdmin: function(){
+        if(Meteor.user().profile.accountType ==='Admin')
+          return true;
+        return false;
+      },
+        isNotAdmin: function(){
+        if(Meteor.user().profile.accountType ==='Admin')
+            // alert("haha")
+          return false;
+        return true;  
+      },
+
 });
 
 Template.xemchiphi.helpers({

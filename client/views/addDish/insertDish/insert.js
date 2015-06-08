@@ -20,11 +20,12 @@ Template.InsertDish.events({
 			count++;
 			cmtCount[count] = 0;
 			var thanhphanmoi =
-			"<div style = 'border: 1px solid gray;height: 40px;' id='thanhphan"+ count + "'>"+
+			"<div style = 'height: 40px;' id='thanhphan"+ count + "'>"+
 				"<span class='tenthucpham col-md-2 h4' id = 'name'"+count+">"+ten+":</span>"+
 				"<span class='khoiluong col-md-1 h4' >"+khoiluong+"</span><p class = 'col-md-2 h4'>"+ donvi +
-				"</p><input class='fa fa-trash-o' type='button' value='X' onclick='javascript:xoathanhphan(" + count + ");'>"+
+				"</p>"+
 			"</div><br>"
+			// <input class='fa fa-trash-o' type='button' value='X' onclick='javascript:xoathanhphan(" + count + ");'>
 			document.getElementById("khungnoidung").innerHTML = thanhphanmoi + document.getElementById("khungnoidung").innerHTML;
 			document.getElementById("tenthucpham").value = "";
 			document.getElementById("khoiluongthanhphanmoi").value = "";

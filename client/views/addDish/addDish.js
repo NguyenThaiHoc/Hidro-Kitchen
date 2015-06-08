@@ -27,3 +27,9 @@ Template.dishList.helpers({
       return MonAn.find({}, {sort: { name: 1, cost: -1}}).fetch();
     }
 });
+Template.dish.events({
+	"click #delete-button": function(){
+		Meteor.call('delete-dish', this._id);
+		// alert("haha");
+	}
+});

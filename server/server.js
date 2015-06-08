@@ -10,7 +10,11 @@ Meteor.startup(function() {
 });
 
 Meteor.methods({
+	"delete-dish": function(idInput){
+		MonAn.remove({_id: idInput});
+	},
 	"createUserFromAdmin":function(emailInput, passwordInput, usernameInput){
+
     	Accounts.createUser({email: emailInput, password : passwordInput, profile: { name: usernameInput}});
         console.log("Ok");
         //Accounts.createUser({email:email,password:password,username:username})

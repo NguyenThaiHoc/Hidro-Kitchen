@@ -36,7 +36,7 @@ Template.usercheck.events({
 		// var date = t.find('#date').value.trim();
 		// alert(this._id);
 		if ( $(event.target).is(':checked')) {
-			 alert("haha")
+			 // alert("haha")
 			// dishChosen.push(this._id);
 			// alert(dishChosen)
 		} else{
@@ -46,7 +46,7 @@ Template.usercheck.events({
 			// 	}
 			// }
 			// alert(dishChosen)
-			alert("hehe")
+			// alert("hehe")
 		}	
 	}
 });

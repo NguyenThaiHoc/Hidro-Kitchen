@@ -1,25 +1,39 @@
 <template name="HomePrivate">
+    <!-- <p>Look at <a href="/sitemap.xml">/sitemap.xml</a> (and view source).</p> -->
 	<div class="container" id="content">
-		<div class="" id="title_row">
-			<div class="col-md-12">
-				<!-- <h2 id="page_title" class="pull-left">
-					Welcome {{userFullName}}!
-				</h2>
-				<div id="page_menu" class="pull-right">
-
-				</div> -->
-                {{>calendar}}
-			</div>
-		</div>
+		{{#if isNotAdmin}}
+        
         <div class="col-md-12">
-            <!-- {{>ForAdmin}} -->
+            <!--  -->
             {{> bigbuttonregister}}
-            <!-- {{>menuforuser}} -->
+            
         </div>
 
+
+        <div class = "col-md-12">
+            {{>menuforuser}}
+        </div>
+        <div class="" id="title_row">
+            <div class="col-md-12">
+                <!-- <h2 id="page_title" class="pull-left">
+                    Welcome {{userFullName}}!
+                </h2>
+                <div id="page_menu" class="pull-right">
+
+                </div> -->
+                {{>calendar}}
+            </div>
+        </div>
         <div class = "col-md-12">
             {{>xemchiphi}}
         </div>
+        {{/if}}
+        {{#if isAdmin}}
+          {{>ForAdmin}}
+        <div class="col-md-12">
+        </div>
+        {{/if}}
+        
 	</div>
 </template>
 
@@ -115,6 +129,8 @@
 
 
 <template name = "menuforuser">
+    <h2>Xem thực đơn</h2>
+    <hr>
     <div class = "col-sm-4">
         <label for="date">
         </label>
@@ -125,14 +141,14 @@
         </label>
         <button type = "button" id = "show" class = "btn btn-success form-control">Show</button>
     </div>
-    <hr>
+    <br><br><br><br>
     {{#each alledishforuser}}
         {{> edishforuser}}
     {{/each}}
 </template>
 
 <template name = "edishforuser">
-    <div class = "col-sm-12 hdish">
+    <div class = "col-sm-12 hdishuser">
         <img src="images/images.jpg" >
         <!-- <input class="hcheckbox check" id="xx" type="checkbox" value="hh" name="category"/> -->
         <p class = "h3">{{name}}</p>
@@ -144,8 +160,8 @@
 
 <template name = "bigbuttonregister">
     <h2>Đăng ký nhanh</h2>
-    <hr><br>
-    <div style = "width: 300px; height: 300px; position: relative; border-radius:300px;margin: 100px auto">
+    <hr>
+    <div style = "width: 300px; height: 300px; position: relative; border-radius:300px;margin: 110px auto">
     <img id = "clickimg" src="images/{{img}}" style = "height: 100%; width: 100%">
     <h3> Bạn {{da_chua}} đăng ký ăn ngày {{ngaydangky}}</h3>
     </div>
@@ -167,7 +183,7 @@
             {{/each}}
             <tr>
                 <th>Tổng</th>
-                <th>900.000</th>
+                <th>780.000</th>
             </tr>
         </tbody>
     </table>
